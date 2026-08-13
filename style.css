@@ -3,12 +3,12 @@
   --bg-card: #101412;
   --bg-card-2: #151a17;
 
-  --green: #18d26e;
-  --green-dark: #0b8f49;
+  --green: #018dff;
+  --green-dark: #0400ff;
   --yellow: #f5c542;
 
   --white: #f4f7f5;
-  --muted: #89938d;
+  --muted: #c7c7c7;
 
   --border: rgba(255, 255, 255, 0.08);
   --red: #ff5757;
@@ -88,7 +88,7 @@ header {
 
   transform: rotate(-12deg);
 
-  box-shadow: 0 0 25px rgba(24, 210, 110, 0.25);
+  box-shadow: 0 0 25px rgba(2, 36, 189, 0.25);
 }
 
 .logo-text {
@@ -171,8 +171,8 @@ nav a.active {
   background:
     linear-gradient(
       135deg,
-      #1bdc73,
-      #087a3c
+      #1bd6dcc2,
+      #002fff
     );
 
   display: grid;
