@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Entrar na Sala - DraftBR</title>
+
+    <link
+        rel="stylesheet"
+        href="room.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="room-header">
+
+        <div class="logo">
+
+            <div class="logo-ball">
+                ⚽
+            </div>
+
+            <span>
+                Draft<span>BR</span>
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="setup-container">
+
+        <section class="setup-card">
+
+            <div class="setup-title">
+
+                <span class="setup-tag">
+                    ENTRAR NA SALA
+                </span>
+
+                <h1>
+                    Qual é o seu nome?
+                </h1>
+
+                <p>
+                    Escolha como você aparecerá
+                    para os outros jogadores.
+                </p>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="playerName">
+                    Nome de usuário
+                </label>
+
+                <input
+                    id="playerName"
+                    type="text"
+                    maxlength="20"
+                    placeholder="Digite seu nome"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <button
+                id="joinButton"
+                class="primary-button"
+            >
+                Entrar na sala
+            </button>
+
+
+            <p
+                id="joinMessage"
+                class="message"
+            ></p>
+
+        </section>
+
+    </main>
+
+
+    <script src="entrar.js"></script>
+
+</body>
+
+</html>

@@ -1,8 +1,12 @@
 /* =========================================
    DRAFTBR
-   Sistema inicial de salas
+   SISTEMA DE SALAS
 ========================================= */
 
+
+/* =========================================
+   ELEMENTOS
+========================================= */
 
 const createRoomButton =
     document.getElementById("createRoomButton");
@@ -18,7 +22,7 @@ const message =
 
 
 /* =========================================
-   GERAR CÓDIGO DA SALA
+   GERAR CÓDIGO
 ========================================= */
 
 function generateRoomCode() {
@@ -43,10 +47,12 @@ function generateRoomCode() {
 
 
 /* =========================================
-   MOSTRAR MENSAGEM
+   MENSAGEM
 ========================================= */
 
 function showMessage(text, type = "") {
+
+    if (!message) return;
 
     message.textContent = text;
 
@@ -62,200 +68,168 @@ function showMessage(text, type = "") {
    CRIAR SALA
 ========================================= */
 
-createRoomButton.addEventListener(
-    "click",
-    function () {
+if (createRoomButton) {
 
-        const roomCode =
-            generateRoomCode();
+    createRoomButton.addEventListener(
+        "click",
+        function () {
 
+            /*
+             * Gera um código novo.
+             */
 
-        /*
-         * Neste primeiro protótipo,
-         * salvamos a sala no navegador.
-         *
-         * Depois isso será substituído
-         * por uma API/backend.
-         */
+            let roomCode = generateRoomCode();
 
-        const room = {
-            code: roomCode,
-            createdAt: Date.now(),
-            players: []
-        };
+            /*
+             * Evita gerar uma sala com código
+             * que já exista neste navegador.
+             */
 
-
-        localStorage.setItem(
-            `draftbr_room_${roomCode}`,
-            JSON.stringify(room)
-        );
+            while (
+                localStorage.getItem(
+                    `draftbr_room_${roomCode}`
+                )
+            ) {
+                roomCode = generateRoomCode();
+            }
 
 
-        /*
-         * Guardamos também a sala atual.
-         */
+            /*
+             * Guarda o código temporariamente.
+             */
 
-        localStorage.setItem(
-            "draftbr_current_room",
-            roomCode
-        );
-
-
-        showMessage(
-            `Sala criada! Código: ${roomCode}`,
-            "success"
-        );
-
-
-        /*
-         * Por enquanto apenas mostra
-         * o código.
-         *
-         * Na próxima etapa podemos levar
-         * o jogador para:
-         *
-         * /sala.html?codigo=XXXXXX
-         */
-
-        setTimeout(() => {
-
-            alert(
-                `Sala criada!\n\nCódigo: ${roomCode}\n\nCompartilhe este código com os jogadores.`
+            localStorage.setItem(
+                "draftbr_setup_room",
+                roomCode
             );
 
-        }, 100);
 
-    }
-);
+            /*
+             * Vai para a página de configuração.
+             */
+
+            window.location.href =
+                `configuracao.html?codigo=${roomCode}`;
+
+        }
+    );
+
+}
 
 
 /* =========================================
    ENTRAR NA SALA
 ========================================= */
 
-joinRoomButton.addEventListener(
-    "click",
-    function () {
+if (joinRoomButton) {
 
-        const code =
-            roomCodeInput.value
-                .trim()
-                .toUpperCase();
+    joinRoomButton.addEventListener(
+        "click",
+        function () {
+
+            const code =
+                roomCodeInput.value
+                    .trim()
+                    .toUpperCase();
 
 
-        if (!code) {
+            if (!code) {
 
-            showMessage(
-                "Digite o código da sala.",
-                "error"
+                showMessage(
+                    "Digite o código da sala.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            if (code.length !== 6) {
+
+                showMessage(
+                    "O código deve possuir 6 caracteres.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+             * Verifica se a sala existe.
+             */
+
+            const roomData =
+                localStorage.getItem(
+                    `draftbr_room_${code}`
+                );
+
+
+            if (!roomData) {
+
+                showMessage(
+                    "Sala não encontrada.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+             * Guarda o código para a próxima página.
+             */
+
+            localStorage.setItem(
+                "draftbr_join_room",
+                code
             );
 
-            return;
+
+            /*
+             * Vai para a tela onde o jogador
+             * escolherá o nome.
+             */
+
+            window.location.href =
+                `entrar.html?codigo=${code}`;
+
         }
+    );
 
-
-        if (code.length !== 6) {
-
-            showMessage(
-                "O código deve possuir 6 caracteres.",
-                "error"
-            );
-
-            return;
-        }
-
-
-        /*
-         * Verifica se a sala existe
-         * neste navegador.
-         */
-
-        const roomData =
-            localStorage.getItem(
-                `draftbr_room_${code}`
-            );
-
-
-        if (!roomData) {
-
-            showMessage(
-                "Sala não encontrada.",
-                "error"
-            );
-
-            return;
-        }
-
-
-        const room =
-            JSON.parse(roomData);
-
-
-        /*
-         * Guarda a sala atual.
-         */
-
-        localStorage.setItem(
-            "draftbr_current_room",
-            room.code
-        );
-
-
-        showMessage(
-            `Entrando na sala ${room.code}...`,
-            "success"
-        );
-
-
-        /*
-         * Futuramente:
-         *
-         * window.location.href =
-         * `sala.html?codigo=${room.code}`;
-         */
-
-        setTimeout(() => {
-
-            alert(
-                `Você entrou na sala ${room.code}!`
-            );
-
-        }, 300);
-
-    }
-);
+}
 
 
 /* =========================================
-   INPUT
+   INPUT DO CÓDIGO
 ========================================= */
 
-roomCodeInput.addEventListener(
-    "input",
-    function () {
+if (roomCodeInput) {
 
-        this.value =
-            this.value
-                .toUpperCase()
-                .replace(/[^A-Z0-9]/g, "");
+    roomCodeInput.addEventListener(
+        "input",
+        function () {
 
-    }
-);
-
-
-/* =========================================
-   ENTER PARA ENTRAR
-========================================= */
-
-roomCodeInput.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (event.key === "Enter") {
-
-            joinRoomButton.click();
+            this.value =
+                this.value
+                    .toUpperCase()
+                    .replace(/[^A-Z0-9]/g, "");
 
         }
+    );
 
-    }
-);
+
+    roomCodeInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                joinRoomButton.click();
+
+            }
+
+        }
+    );
+
+}

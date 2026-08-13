@@ -1,0 +1,803 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --purple:
+        #8b5cf6;
+
+    --purple-light:
+        #a78bfa;
+
+    --purple-bright:
+        #c084fc;
+
+    --purple-dark:
+        #6d28d9;
+
+    --background:
+        #0b0710;
+
+    --card:
+        #17101f;
+
+    --card-light:
+        #21152c;
+
+    --text:
+        #ffffff;
+
+    --text-secondary:
+        #a99db2;
+
+    --border:
+        rgba(255, 255, 255, 0.08);
+
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color:
+        var(--text);
+
+    background:
+
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(139, 92, 246, 0.25),
+            transparent 40%
+        ),
+
+        var(--background);
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.room-header {
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding:
+        25px;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+}
+
+
+.logo-ball {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 11px;
+
+    background:
+        var(--purple);
+
+    box-shadow:
+        0 0 25px
+        rgba(139, 92, 246, 0.3);
+
+}
+
+
+.logo span span {
+
+    color:
+        var(--purple-light);
+
+}
+
+
+/* =========================================
+   SETUP
+========================================= */
+
+.setup-container {
+
+    min-height:
+        calc(100vh - 90px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        30px 20px 60px;
+
+}
+
+
+.setup-card {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 40px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 22px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            var(--card-light),
+            var(--card)
+        );
+
+    box-shadow:
+
+        0 30px 90px
+        rgba(0, 0, 0, 0.45);
+
+}
+
+
+.setup-title {
+
+    margin-bottom: 32px;
+
+}
+
+
+.setup-tag {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding:
+        7px 12px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.25);
+
+    color:
+        var(--purple-light);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.setup-title h1 {
+
+    margin-bottom: 10px;
+
+    font-size: 32px;
+
+}
+
+
+.setup-title p {
+
+    color:
+        var(--text-secondary);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+
+    margin-bottom: 25px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 9px;
+
+    color:
+        #d8d0de;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.form-group input {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        #0f0914;
+
+    color:
+        white;
+
+    font-size: 15px;
+
+}
+
+
+.form-group input:focus {
+
+    border-color:
+        var(--purple);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(139, 92, 246, 0.12);
+
+}
+
+
+/* =========================================
+   PLAYER OPTIONS
+========================================= */
+
+.player-options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+}
+
+
+.player-options button {
+
+    height: 48px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 10px;
+
+    background:
+        #110b16;
+
+    color:
+        #b8aebe;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        0.2s;
+
+}
+
+
+.player-options button:hover {
+
+    border-color:
+        rgba(139, 92, 246, 0.5);
+
+    color:
+        white;
+
+}
+
+
+.player-options button.selected {
+
+    border-color:
+        var(--purple);
+
+    background:
+        rgba(139, 92, 246, 0.18);
+
+    color:
+        var(--purple-light);
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(139, 92, 246, 0.08);
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.primary-button {
+
+    width: 100%;
+
+    height: 56px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--purple-light),
+            var(--purple)
+        );
+
+    color:
+        white;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        0.2s;
+
+}
+
+
+.primary-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 35px
+        rgba(139, 92, 246, 0.35);
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    min-height:
+        20px;
+
+    margin-top:
+        15px;
+
+    text-align:
+        center;
+
+    font-size:
+        13px;
+
+}
+
+
+.message.error {
+
+    color:
+        #ff6b9d;
+
+}
+
+
+.message.success {
+
+    color:
+        var(--purple-light);
+
+}
+
+
+/* =========================================
+   LOBBY
+========================================= */
+
+.lobby {
+
+    width:
+        100%;
+
+    max-width:
+        1250px;
+
+    margin:
+        auto;
+
+    padding:
+        40px 25px 60px;
+
+}
+
+
+.lobby-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 400px;
+
+    gap:
+        25px;
+
+}
+
+
+/* =========================================
+   PLAYERS CARD
+========================================= */
+
+.players-card {
+
+    padding:
+        30px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        20px;
+
+    background:
+        var(--card);
+
+}
+
+
+.players-header {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    margin-bottom:
+        25px;
+
+}
+
+
+.players-header h1 {
+
+    font-size:
+        26px;
+
+}
+
+
+.player-count {
+
+    padding:
+        7px 12px;
+
+    border-radius:
+        50px;
+
+    background:
+        rgba(139, 92, 246, 0.1);
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================
+   PLAYER
+========================================= */
+
+.player {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        14px;
+
+    padding:
+        15px;
+
+    margin-bottom:
+        9px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        12px;
+
+    background:
+        rgba(255, 255, 255, 0.02);
+
+}
+
+
+.player-avatar {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border-radius:
+        50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--purple-dark)
+        );
+
+    font-weight:
+        800;
+
+}
+
+
+.player-name {
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+}
+
+
+.host {
+
+    margin-left:
+        auto;
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        11px;
+
+    font-weight:
+        700;
+
+}
+
+
+/* =========================================
+   ROOM CODE
+========================================= */
+
+.room-code-card {
+
+    padding:
+        35px;
+
+    border:
+        1px solid
+        rgba(139, 92, 246, 0.25);
+
+    border-radius:
+        20px;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(139, 92, 246, 0.18),
+            transparent 60%
+        ),
+
+        var(--card);
+
+    text-align:
+        center;
+
+}
+
+
+.room-code-label {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        1px;
+
+}
+
+
+.room-code {
+
+    margin:
+        15px 0;
+
+    color:
+        var(--purple-light);
+
+    font-size:
+        clamp(42px, 7vw, 64px);
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        8px;
+
+    text-shadow:
+        0 0 30px
+        rgba(139, 92, 246, 0.3);
+
+}
+
+
+.room-code-description {
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 850px) {
+
+    .lobby-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .setup-card {
+
+        padding:
+            25px 20px;
+
+    }
+
+
+    .player-options {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+    }
+
+
+    .room-code {
+
+        letter-spacing:
+            5px;
+
+    }
+
+}

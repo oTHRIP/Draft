@@ -1,173 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DraftBR - Draft de Futebol</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>Configurar Sala - DraftBR</title>
+
+    <link
+        rel="stylesheet"
+        href="room.css"
+    >
+
 </head>
 
 <body>
 
-    <main class="app">
+    <main class="room-page">
 
-        <!-- Logo -->
-        <header class="header">
+        <header class="room-header">
+
             <div class="logo">
-                <span class="logo-ball">⚽</span>
-                <span>Draft<span class="logo-highlight">BR</span></span>
+
+                <div class="logo-ball">
+                    ⚽
+                </div>
+
+                <span>
+                    Draft<span>BR</span>
+                </span>
+
             </div>
 
-            <div class="status">
-                <span class="status-dot"></span>
-                Sistema online
-            </div>
         </header>
 
 
-        <!-- Conteúdo principal -->
-        <section class="hero">
+        <section class="setup-container">
 
-            <div class="hero-content">
+            <div class="setup-card">
 
-                <span class="tag">
-                    🏆 DRAFT DE FUTEBOL BRASILEIRO
-                </span>
+                <div class="setup-title">
 
-                <h1>
-                    Monte seu time.
-                    <span>Domine o Draft.</span>
-                </h1>
+                    <span class="setup-tag">
+                        NOVA SALA
+                    </span>
 
-                <p>
-                    Crie uma sala, convide seus amigos e monte
-                    o melhor time do futebol brasileiro.
-                </p>
-
-            </div>
-
-
-            <!-- Card principal -->
-            <div class="room-card">
-
-                <div class="card-header">
-                    <h2>Entrar no jogo</h2>
+                    <h1>
+                        Configure sua sala
+                    </h1>
 
                     <p>
-                        Não precisa criar conta.
+                        Defina o limite de jogadores
+                        e escolha seu nome.
                     </p>
+
                 </div>
 
 
-                <!-- Criar sala -->
-                <button
-                    id="createRoomButton"
-                    class="primary-button"
-                    type="button"
-                >
-                    <span>+</span>
-                    Criar nova sala
-                </button>
+                <div class="form-group">
 
-
-                <div class="divider">
-                    <span>OU</span>
-                </div>
-
-
-                <!-- Entrar em sala -->
-                <div class="join-section">
-
-                    <label for="roomCode">
-                        Código da sala
+                    <label for="creatorName">
+                        Seu nome
                     </label>
 
-                    <div class="join-input">
-                        <input
-                            id="roomCode"
-                            type="text"
-                            maxlength="6"
-                            placeholder="EX: A7K92P"
-                            autocomplete="off"
-                        >
+                    <input
+                        id="creatorName"
+                        type="text"
+                        maxlength="20"
+                        placeholder="Digite seu nome"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Quantidade máxima de jogadores
+                    </label>
+
+                    <div
+                        id="playerLimit"
+                        class="player-options"
+                    >
+
+                        <button data-value="2">
+                            2
+                        </button>
+
+                        <button data-value="3">
+                            3
+                        </button>
 
                         <button
-                            id="joinRoomButton"
-                            type="button"
+                            data-value="4"
+                            class="selected"
                         >
-                            Entrar
+                            4
                         </button>
+
+                        <button data-value="5">
+                            5
+                        </button>
+
+                        <button data-value="6">
+                            6
+                        </button>
+
+                        <button data-value="8">
+                            8
+                        </button>
+
+                        <button data-value="10">
+                            10
+                        </button>
+
+                        <button data-value="12">
+                            12
+                        </button>
+
                     </div>
 
                 </div>
 
 
+                <button
+                    id="confirmRoomButton"
+                    class="primary-button"
+                >
+                    Criar sala
+                </button>
+
+
                 <p
-                    id="message"
+                    id="setupMessage"
                     class="message"
-                    aria-live="polite"
                 ></p>
 
             </div>
 
         </section>
 
-
-        <!-- Informações -->
-        <section class="features">
-
-            <div class="feature">
-                <div class="feature-icon">👤</div>
-
-                <div>
-                    <h3>Sem cadastro</h3>
-                    <p>
-                        Entre rapidamente sem criar conta.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="feature">
-                <div class="feature-icon">🎮</div>
-
-                <div>
-                    <h3>Salas privadas</h3>
-                    <p>
-                        Crie uma sala e compartilhe o código.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="feature">
-                <div class="feature-icon">⚽</div>
-
-                <div>
-                    <h3>Draft brasileiro</h3>
-                    <p>
-                        Monte seu elenco com jogadores do Brasil.
-                    </p>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- Rodapé -->
-        <footer>
-            <p>
-                DraftBR © 2026 — Protótipo
-            </p>
-        </footer>
-
     </main>
 
 
-    <script src="script.js"></script>
+    <script src="configuracao.js"></script>
 
 </body>
+
 </html>
->

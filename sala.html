@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sala - DraftBR</title>
+
+    <link
+        rel="stylesheet"
+        href="room.css"
+    >
+
+</head>
+
+<body>
+
+    <header class="room-header">
+
+        <div class="logo">
+
+            <div class="logo-ball">
+                ⚽
+            </div>
+
+            <span>
+                Draft<span>BR</span>
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <main class="lobby">
+
+        <div class="lobby-grid">
+
+
+            <!-- JOGADORES -->
+
+            <section class="players-card">
+
+                <div class="players-header">
+
+                    <h1>
+                        Jogadores
+                    </h1>
+
+                    <span
+                        id="playerCount"
+                        class="player-count"
+                    >
+                        1 / 4
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="playersList"
+                >
+                    <!-- jogadores serão inseridos pelo JS -->
+                </div>
+
+            </section>
+
+
+            <!-- CÓDIGO -->
+
+            <aside class="room-code-card">
+
+                <div class="room-code-label">
+                    CÓDIGO DA SALA
+                </div>
+
+
+                <div
+                    id="roomCode"
+                    class="room-code"
+                >
+                    ------
+                </div>
+
+
+                <p class="room-code-description">
+
+                    Compartilhe este código
+                    com seus amigos para
+                    eles entrarem na sala.
+
+                </p>
+
+            </aside>
+
+
+        </div>
+
+    </main>
+
+
+    <script src="sala.js"></script>
+
+</body>
+
+</html>
