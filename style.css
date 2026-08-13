@@ -10,18 +10,19 @@
 
 
 :root {
-    --green: #00c853;
-    --green-dark: #00963f;
-    --green-light: #1bea72;
+    --purple: #8b5cf6;
+    --purple-dark: #6d28d9;
+    --purple-light: #a78bfa;
+    --purple-bright: #c084fc;
 
-    --background: #07100c;
-    --background-light: #0c1812;
+    --background: #0b0710;
+    --background-light: #150d1d;
 
-    --card: #101c16;
-    --card-light: #14241b;
+    --card: #17101f;
+    --card-light: #21152c;
 
     --text: #ffffff;
-    --text-secondary: #9aa9a0;
+    --text-secondary: #a99db2;
 
     --border: rgba(255, 255, 255, 0.08);
 }
@@ -45,7 +46,7 @@ body {
     background:
         radial-gradient(
             circle at 50% -10%,
-            rgba(0, 200, 83, 0.20),
+            rgba(139, 92, 246, 0.25),
             transparent 40%
         ),
         var(--background);
@@ -107,14 +108,18 @@ body {
 
     border-radius: 10px;
 
-    background: var(--green);
+    background: var(--purple);
 
     font-size: 20px;
+
+    box-shadow:
+        0 0 20px
+        rgba(139, 92, 246, 0.25);
 }
 
 
 .logo-highlight {
-    color: var(--green);
+    color: var(--purple-light);
 }
 
 
@@ -137,11 +142,11 @@ body {
 
     border-radius: 50%;
 
-    background: var(--green);
+    background: var(--purple);
 
     box-shadow:
         0 0 10px
-        rgba(0, 200, 83, 0.8);
+        rgba(139, 92, 246, 0.9);
 }
 
 
@@ -178,14 +183,14 @@ body {
 
     border:
         1px solid
-        rgba(0, 200, 83, 0.25);
+        rgba(139, 92, 246, 0.35);
 
     border-radius: 50px;
 
     background:
-        rgba(0, 200, 83, 0.08);
+        rgba(139, 92, 246, 0.10);
 
-    color: var(--green-light);
+    color: var(--purple-light);
 
     font-size: 12px;
 
@@ -213,7 +218,7 @@ body {
 .hero h1 span {
     display: block;
 
-    color: var(--green);
+    color: var(--purple-light);
 }
 
 
@@ -250,7 +255,9 @@ body {
 
     box-shadow:
         0 25px 80px
-        rgba(0, 0, 0, 0.35);
+        rgba(0, 0, 0, 0.45),
+        0 0 40px
+        rgba(139, 92, 246, 0.05);
 }
 
 
@@ -289,11 +296,11 @@ body {
     background:
         linear-gradient(
             135deg,
-            var(--green-light),
-            var(--green)
+            var(--purple-light),
+            var(--purple)
         );
 
-    color: #041008;
+    color: #ffffff;
 
     font-size: 16px;
 
@@ -319,7 +326,7 @@ body {
 
     box-shadow:
         0 10px 30px
-        rgba(0, 200, 83, 0.25);
+        rgba(139, 92, 246, 0.40);
 }
 
 
@@ -341,7 +348,7 @@ body {
 
     margin: 25px 0;
 
-    color: #617067;
+    color: #71667b;
 
     font-size: 11px;
 
@@ -371,7 +378,7 @@ body {
 
     margin-bottom: 9px;
 
-    color: #c9d2cc;
+    color: #d6cde0;
 
     font-size: 13px;
 
@@ -402,7 +409,7 @@ body {
 
     outline: none;
 
-    background: #09120d;
+    background: #0f0914;
 
     color: white;
 
@@ -419,16 +426,16 @@ body {
 
 
 .join-input input::placeholder {
-    color: #536158;
+    color: #62566c;
 }
 
 
 .join-input input:focus {
-    border-color: var(--green);
+    border-color: var(--purple);
 
     box-shadow:
         0 0 0 3px
-        rgba(0, 200, 83, 0.08);
+        rgba(139, 92, 246, 0.12);
 }
 
 
@@ -439,7 +446,7 @@ body {
 
     border-radius: 10px;
 
-    background: #1c2b22;
+    background: #30203d;
 
     color: white;
 
@@ -448,12 +455,17 @@ body {
     cursor: pointer;
 
     transition:
-        background 0.2s;
+        background 0.2s,
+        box-shadow 0.2s;
 }
 
 
 .join-input button:hover {
-    background: #263a2e;
+    background: #402951;
+
+    box-shadow:
+        0 5px 20px
+        rgba(139, 92, 246, 0.15);
 }
 
 
@@ -475,12 +487,12 @@ body {
 
 
 .message.success {
-    color: var(--green-light);
+    color: var(--purple-light);
 }
 
 
 .message.error {
-    color: #ff5f56;
+    color: #ff5f8f;
 }
 
 
@@ -514,7 +526,7 @@ body {
     border-radius: 15px;
 
     background:
-        rgba(255, 255, 255, 0.025);
+        rgba(139, 92, 246, 0.025);
 }
 
 
@@ -532,7 +544,9 @@ body {
     border-radius: 11px;
 
     background:
-        rgba(0, 200, 83, 0.1);
+        rgba(139, 92, 246, 0.12);
+
+    color: var(--purple-light);
 
     font-size: 20px;
 }
@@ -563,7 +577,7 @@ footer {
 
     text-align: center;
 
-    color: #526057;
+    color: #665b6d;
 
     font-size: 12px;
 }
